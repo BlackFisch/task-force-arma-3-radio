@@ -29,6 +29,7 @@ if (alive TFAR_currentUnit) then {
 			};
 			if (!_spectator) then {
 				_result pushBack _x;	
+
 			};
 		};
 		true;

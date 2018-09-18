@@ -26,10 +26,9 @@ if !(isNull (findDisplay 46)) then {
 			if (count tf_nearPlayers == 0) then {
 				tf_nearPlayers = call TFAR_fnc_getNearPlayers;
 			};
-
+						
 			_other_units = allUnits - tf_nearPlayers;
 			
-				
 			{		
 				if !(_x in _other_units) then {
 					_other_units pushBack _x;	
@@ -94,7 +93,7 @@ if !(isNull (findDisplay 46)) then {
 							tf_nearPlayers = call TFAR_fnc_getNearPlayers;						
 							tf_lastNearPlayersUpdate = diag_tickTime;						
 						};
-						
+
 						call TFAR_fnc_processSpeakerRadios;
 						
 						_speakers = "SPEAKERS	";

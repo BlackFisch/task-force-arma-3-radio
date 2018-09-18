@@ -73,4 +73,22 @@ if ((_nearPlayer) and {TFAR_currentUnit distance _unit <= TF_speakerDistance}) t
 	};	
 };
 
-(format["POS	%1	%2	%3	%4	%5	%6	%7	%8	%9	%10	%11	%12	%13", _this select 2, _pos select 0, _pos select 1, _pos select 2, _pos select 3, _can_speak, _useSw, _useLr, _useDd, _vehicle, _unit call TFAR_fnc_calcTerrainInterception, _unit getVariable ["tf_voiceVolume", 1.0], call TFAR_fnc_currentDirection])
+_direction = call TFAR_fnc_currentDirection;
+
+if (_unit != TFAR_currentUnit) then {
+	if ((TFAR_currentUnit getVariable "in_call") && (_unit getVariable "in_call")) then {
+		_player = _unit getVariable "calling_with";
+		if (_player == TFAR_currentUnit) then {
+			_pos = [-0.8,1.5,0,0];
+			_direction = TFAR_currentUnit getVariable "calling_direction";
+		};
+	};
+};
+if (_unit == TFAR_currentUnit) then {
+	if (TFAR_currentUnit getVariable "in_call") then {
+		_direction = TFAR_currentUnit getVariable "calling_direction";
+		_pos = [0,0,0,_direction];
+	};
+};
+
+(format["POS	%1	%2	%3	%4	%5	%6	%7	%8	%9	%10	%11	%12	%13", _this select 2, _pos select 0, _pos select 1, _pos select 2, _pos select 3, _can_speak, _useSw, _useLr, _useDd, _vehicle, _unit call TFAR_fnc_calcTerrainInterception, _unit getVariable ["tf_voiceVolume", 1.0],_direction])

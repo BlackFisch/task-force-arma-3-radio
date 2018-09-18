@@ -7,7 +7,7 @@
 
  	Description:
 		Searches through all the items assigned to and on the player and checks if it is a prototype radio
-		and then creates an array of all the classnames of the prototype radios and returns it.
+		and then creates an array of all the classnames of the prototype radios and Returns it.
 	
 	Parameters:
 		BOOLEAN - Regardless of whether the radio is prototype or not, return it as a radio to be replaced.
